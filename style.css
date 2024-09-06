@@ -1,0 +1,420 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(
+            to right,
+            #EAF2F8, #D4E6F1
+    );
+    height: 100vh;
+}
+
+header {
+    padding: 20px 20px 40px 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-wrapper {
+    position: relative; /* Updated */
+    transform: translate(0, 0); /* Updated */
+    width: 450px; /* Added */
+    display: flex; /* Added */
+    justify-content: center; /* Added */
+}
+
+.search-wrapper .input-holder {
+    width: 100%; /* Updated */
+}
+
+.search-wrapper .input-holder {
+    height: 70px;
+    width:70px;
+    overflow: hidden;
+    background: rgba(255,255,255,0);
+    border-radius:6px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.search-wrapper.active .input-holder {
+    width:450px;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.5);
+    transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+}
+.search-wrapper .input-holder .search-input {
+    width:100%;
+    height: 50px;
+    padding:0 70px 0 20px;
+    opacity: 0;
+    position: absolute;
+    top:0;
+    left:0;
+    background: transparent;
+    box-sizing: border-box;
+    border:none;
+    outline:none;
+    font-family: "Open Sans", Arial, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color:#FFF;
+    transform: translate(0, 60px);
+    transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.3s;
+}
+.search-wrapper.active .input-holder .search-input {
+    opacity: 1;
+    transform: translate(0, 10px);
+}
+.search-wrapper .input-holder .search-icon {
+    width:70px;
+    height:70px;
+    border:none;
+    border-radius:6px;
+    background: #FFF;
+    padding:0;
+    outline:none;
+    position: relative;
+    z-index: 2;
+    float:right;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.search-wrapper.active .input-holder .search-icon {
+    width: 50px;
+    height:50px;
+    margin: 10px;
+    border-radius: 30px;
+}
+.search-wrapper .input-holder .search-icon span {
+    width:22px;
+    height:22px;
+    display: inline-block;
+    vertical-align: middle;
+    position:relative;
+    transform: rotate(45deg);
+    transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
+}
+.search-wrapper.active .input-holder .search-icon span {
+    transform: rotate(-45deg);
+}
+.search-wrapper .input-holder .search-icon span::before, .search-wrapper .input-holder .search-icon span::after {
+    position: absolute;
+    content:'';
+}
+.search-wrapper .input-holder .search-icon span::before {
+    width: 4px;
+    height: 11px;
+    left: 9px;
+    top: 18px;
+    border-radius: 2px;
+    background: #FE5F55;
+}
+.search-wrapper .input-holder .search-icon span::after {
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 0;
+    border-radius: 16px;
+    border: 4px solid #FE5F55;
+}
+
+.search-wrapper .close {
+    position: absolute;
+    z-index: 1; /* Keeps it behind initially */
+    top: 50%; /* Center vertically relative to the search button */
+    right: 15px; /* Initially positioned behind the search button */
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transform: translateY(-50%) rotate(-90deg); /* Initial rotation and vertical centering */
+    opacity: 0; /* Hidden initially */
+    transition: all 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+.search-wrapper.active .close {
+    top: 25px;
+    right: 65px; /* Move it to the left of the search button */
+    transform: translateY(-50%) rotate(90deg); /* Rotate and keep it vertically centered */
+    opacity: 1; /* Make it visible */
+    z-index: 3; /* Bring it to the front */
+    transition: all 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+
+.search-wrapper.active .close {
+    right:-50px;
+    transform: rotate(45deg);
+    transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.5s;
+}
+.search-wrapper .close::before, .search-wrapper .close::after {
+    position:absolute;
+    content:'';
+    background: #FE5F55;
+    border-radius: 2px;
+}
+.search-wrapper .close::before {
+    width: 5px;
+    height: 25px;
+    left: 10px;
+    top: 0;
+}
+.search-wrapper .close::after {
+    width: 25px;
+    height: 5px;
+    left: 0;
+    top: 10px;
+}
+
+h1 {
+    color: #1A5276;
+    font-size: 60px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #1A5276;
+    font-size: 30px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 0.375em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 90%;
+    display: none;
+}
+
+
+.suggestions-list li {
+    padding: 0.75em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.suggestions-list li:hover {
+    background-color: #f1f1f1;
+}
+
+
+.suggestions-list li.active {
+    background-color: #2762f3;
+    color: white;
+}
+
+
+.weather-info{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+}
+
+.random-photo {
+
+    width: 480px;
+    height: 480px;
+    border-radius: 10px;
+}
+
+.weather-status-image {
+    width: 72px;
+    height: 72px;
+}
+
+.error-message {
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+
+.current-weather {
+    display: flex;
+    width: 420px;
+    padding: 0 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #2980B9;
+    background: linear-gradient(
+            to bottom,
+            #2980B9,#6DD5FA,#FFFFFF
+    );
+}
+
+.weather-current-text {
+    padding: 0;
+    margin: 0;
+    color: #1A5276;
+    text-align: center;
+}
+
+.text-temperature-color {
+    color: #1A5276;
+}
+.hover-effect {
+    transition: all 0.5s ease-in-out;
+}
+
+.hover-effect:hover {
+    -webkit-box-shadow: 5px -6px 19px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px -6px 19px 3px rgba(0,0,0,0.75);
+    box-shadow: 5px -6px 19px 3px rgba(0,0,0,0.75);
+    scale: 1.05;
+}
+
+.hourly-info-forecast {
+    opacity: 0;
+    margin: 2rem auto;
+    min-width: 300px;
+}
+
+
+.hourly-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.title-hourly-forecast {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.hourly-icon-cart {
+    width: 72px;
+    height: 72px;
+}
+
+.hourly-forecast-main-content {
+    display: flex;
+    padding: 10px 0;
+}
+
+.cart-hour-weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px;
+    text-align: center;
+    min-width: 80px;
+    transition: all 0.5s ease-in-out;
+}
+
+.cart-hour-weather:hover {
+    scale: 1.1;
+}
+
+.search-icon {
+    pointer-events: auto;
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+    .suggestions-list {
+        background: #3d3d3d;
+        border: 1px solid #555;
+        color: white;
+    }
+    .suggestions-list li:hover {
+        background-color: #555;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .header-container {
+        flex-direction: column-reverse;
+    }
+    .search-wrapper.active .input-holder {
+        width: 300px;
+    }
+
+    .search-wrapper.active .close {
+        right: 30px;
+    }
+    .weather-info {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .current-weather {
+        min-width: 300px;
+        min-height: 480px;
+        padding: 0;
+    }
+
+    .random-photo {
+        min-width: 300px;
+        min-height: 480px;
+        border-radius: 10px;
+    }
+
+    .hourly-icon-cart {
+        width: 128px;
+        height: 128px;
+    }
+
+    p {
+        font-size: 33px;
+    }
+
+    .search-wrapper .input-holder {
+        height: 90px;
+    }
+
+    .search-wrapper .input-holder .search-input {
+        top: 13px;
+        font-size: 20px;
+    }
+
+    .search-wrapper.active .input-holder .search-icon {
+        height: 60px;
+        width: 60px;
+    }
+
+    .search-wrapper .input-holder .search-icon {
+        top: 4px;
+    }
+
+    .search-wrapper.active .close {
+        top: 35px;
+    }
+
+}
+
+
+@media screen and (max-width: 500px) {
+    .weather-info {
+        flex-direction: column-reverse;
+    }
+}
