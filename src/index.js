@@ -1,9 +1,7 @@
 import {createApi} from "unsplash-js";
 import  { DateTime } from "luxon";
-// import {weatherIcons, getWeatherIcon} from "../collection-weather-code";
 import "./style.css";
 
-import americanStorm from './images/american-storm.gif';
 import clearSkyNight from './images/clear-sky-night.png';
 import clock from './images/clock.png';
 import cloud from './images/cloud.png';
@@ -209,7 +207,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     perPage: 4, // Show 4 slides per page
                 },
                 480: { // For screens smaller than or equal to 480px
-                    perPage: 2, // Show 2 slides per page
+                    perPage: 3, // Show 3 slides per page
                 },
             },
         });
