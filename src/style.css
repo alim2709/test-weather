@@ -238,7 +238,9 @@ p {
 
 .random-photo {
 
-    width: 480px;
+    max-width: 480px;
+    width: 100%;
+    /*margin: 0 auto;*/
     height: 480px;
     border-radius: 10px;
 }
@@ -256,7 +258,8 @@ p {
 
 .current-weather {
     display: flex;
-    width: 420px;
+    max-width: 420px;
+    width: 100%;
     padding: 0 2rem;
     flex-direction: column;
     justify-content: center;
@@ -368,15 +371,18 @@ p {
         align-items: center;
     }
     .current-weather {
-        min-width: 300px;
+        max-width: 300px;
+        margin: 0 auto;
         min-height: 480px;
         padding: 0;
     }
 
     .random-photo {
-        min-width: 300px;
+        max-width: 300px;
+        margin: 0 auto;
         min-height: 480px;
         border-radius: 10px;
+        object-fit: cover;
     }
 
     /*.hourly-icon-cart {*/
@@ -409,12 +415,15 @@ p {
     .search-wrapper.active .close {
         top: 35px;
     }
+    .weather-info {
+        flex-direction: column;
+    }
 
 }
 
 
 /*@media screen and (max-width: 500px) {*/
 /*    .weather-info {*/
-/*        flex-direction: column-reverse;*/
+/*        flex-direction: column;*/
 /*    }*/
 /*}*/

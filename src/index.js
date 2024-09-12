@@ -573,7 +573,7 @@ async function drawHourlyForecast (weatherData) {
                     perPage: 4, // Show 4 slides per page
                 },
                 480: { // For screens smaller than or equal to 480px
-                    perPage: 2, // Show 2 slides per page
+                    perPage: 3, // Show 2 slides per page
                 },
             },
         });
