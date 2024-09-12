@@ -1,7 +1,7 @@
 import {createApi} from "unsplash-js";
 import  { DateTime } from "luxon";
 // import {weatherIcons, getWeatherIcon} from "../collection-weather-code";
-import "../style.css";
+import "./style.css";
 
 import americanStorm from './images/american-storm.gif';
 import clearSkyNight from './images/clear-sky-night.png';
