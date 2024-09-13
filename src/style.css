@@ -385,14 +385,7 @@ p {
         object-fit: cover;
     }
 
-    /*.hourly-icon-cart {*/
-    /*    width: 128px;*/
-    /*    height: 128px;*/
-    /*}*/
 
-    /*p {*/
-    /*    font-size: 33px;*/
-    /*}*/
 
     .search-wrapper .input-holder {
         height: 90px;
@@ -417,6 +410,11 @@ p {
     }
     .weather-info {
         flex-direction: column;
+    }
+
+    .hourly-icon-cart {
+        width: 48px;
+        height: 48px;
     }
 
 }
