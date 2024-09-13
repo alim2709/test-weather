@@ -541,6 +541,7 @@ async function drawCurrentWeatherHourlyForecast () {
 
 async function drawHourlyForecast (weatherData) {
     const hourlyForecastElement = document.querySelector(".hourly-info-forecast");
+    hourlyForecastElement.classList.add("hover-effect");
     const splideElement = document.querySelector(".splide");
 
     hourlyForecastElement.style.opacity = "1";
