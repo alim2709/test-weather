@@ -204,10 +204,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             pagination: false,
             breakpoints: {
                 1000: { // For screens smaller than or equal to 768px
-                    perPage: 4, // Show 4 slides per page
+                    perPage: 6,
                 },
                 480: { // For screens smaller than or equal to 480px
-                    perPage: 3, // Show 3 slides per page
+                    perPage: 5,
                 },
             },
         });
@@ -570,10 +570,10 @@ async function drawHourlyForecast (weatherData) {
             pagination: false,
             breakpoints: {
                 1000: { // For screens smaller than or equal to 1000px
-                    perPage: 4, // Show 4 slides per page
+                    perPage: 6,
                 },
                 480: { // For screens smaller than or equal to 480px
-                    perPage: 3, // Show 2 slides per page
+                    perPage: 5,
                 },
             },
         });
